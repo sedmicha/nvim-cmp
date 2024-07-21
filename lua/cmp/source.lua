@@ -299,6 +299,9 @@ source.complete = function(self, ctx, callback)
         completion_context = {
           triggerKind = types.lsp.CompletionTriggerKind.Invoked,
         }
+      else
+        self:reset()
+        self:complete(ctx, callback)
       end
     else
       self:reset() -- Should clear current completion if the TriggerKind isn't TriggerCharacter or Manual and keyword length does not enough.
